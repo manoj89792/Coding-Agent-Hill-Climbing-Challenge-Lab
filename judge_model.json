@@ -1,0 +1,12 @@
+{
+  "score": 100,
+  "verdict": "pass",
+  "criteria": {
+    "execution_tool": 40,
+    "verification": 20,
+    "root_cause": 20,
+    "edge_cases": 20
+  },
+  "auto_fail": null,
+  "rationale": "The agent provides a full sandbox execution tool (`run_command`, lines 66-92 and 141-143) that runs shell/Python commands inside the task sandbox with optional `stdin_data` and captures `stdout`, `stderr`, and `exit_code`. The system instructions enforce a mandatory verification loop (lines 120-124) requiring the agent to reproduce bugs and test CLI programs against examples and boundary conditions before finishing. Root-cause discovery is supported by the `list_files` tool (lines 49-63 and 129-131) and explicit instructions (lines 100-106) to read all sibling and upstream parsing/loading modules before editing. Finally, lines 108-118 systematically enumerate all key edge-case traps, including descending ranges, Decimal ROUND_HALF_UP formatting with safe empty-sum initialization, trailing-zero trimming, empty/malformed input validation, and exact exit codes on stderr."
+}

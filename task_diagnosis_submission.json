@@ -1,0 +1,13 @@
+{
+  "task": "invoice_report",
+  "observed_mode": "Mode A — total stays 124 / cents still lost",
+  "description": "For invoice_report, I observed in the trajectory that the agent only read and edited src/invoices/report.py and repeatedly wrote test_invoice_total.py and run_test.py scripts that it had no way to execute, while never opening src/invoices/load.py where parse_amount truncates amounts with int(float(raw)); the coding agent failed because it lacked directory listing/code search tools to discover upstream modules beyond the file named in the prompt and lacked a code execution tool to run tests and verify that its edit to report.py did not fix the root cause.",
+  "score": 100,
+  "criteria": {
+    "capability_gap_and_mechanism": 60,
+    "specificity": 25,
+    "consequence_or_remediation": 15
+  },
+  "verdict": "accepted",
+  "timestamp": "2026-10-29T09:14:00Z"
+}
